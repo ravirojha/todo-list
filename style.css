@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    'header'
+    'list';
+  gap: 10px;
+  justify-items: center;
+}
+
+.header {
+  width: 50vw;
+  display: grid;
+  gap: 2px;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  background-color: red;
+}
+
+.heading {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.addbtn {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  justify-self: start;
+  height: 50%;
+  width: 80%;
+  border: 1px solid grey;
+  font-size: 16px;
+}
+
+.addbtn:hover {
+  cursor: pointer;
+}
+
+#myinput {
+  grid-row-start: 2;
+  justify-self: stretch;
+  height: 50%;
+  border: 1px solid grey;
+  font-size: 16px;
+}
+
+#mylist {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  width: 100%;
+}
+
+#mylist .list-item {
+  justify-self: center;
+  background: rgb(204, 202, 202);
+  font-size: 18px;
+  width: 80%;
+  height: 35px;
+  font-weight: 200;
+  list-style: none;
+  padding: 5px 0 5px 35px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px 15px;
+}
+
+.close:hover {
+  background: red;
+  cursor: pointer;
+}
