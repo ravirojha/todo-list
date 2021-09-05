@@ -1,42 +1,21 @@
-function addList() {
-  const li = document.createElement('li');
-  li.classList.add('list-item');
-  const inputValue = document.getElementById('myinput').value;
-  const text = document.createTextNode(inputValue);
+function validatePassword() {
+  const password = document.getElementById('pwd');
+  const confirmPassword = document.getElementById('cnf-pwd');
+  let errors = [];
+  if (password.value !== confirmPassword.value)
+    errors.push('Passwords do not match!');
+  if (password.value.length < 6)
+    errors.push('Password must have atleast 6 characters');
+  if (password.value.search(/[a-z]/) < 0)
+    errors.push('Password must have atleast one letter');
+  if (password.value.search(/[0-9]/) < 0)
+    errors.push('Password must have atleast one number');
 
-  li.appendChild(text);
-
-  if (inputValue.length == 0) alert('You must write something');
-  else document.getElementById('mylist').appendChild(li);
-
-  document.getElementById('myinput').value = '';
-  const element = document.createElement('span');
-  const txt = document.createTextNode('x');
-  element.appendChild(txt);
-  element.classList.add('close');
-  li.appendChild(element);
-}
-
-const myNodelist = document.getElementsByClassName('list-item');
-for (let i = 0; i < myNodelist.length; i++) {
-  const element = document.createElement('span');
-  const text = document.createTextNode('x');
-  element.classList.add('close');
-  element.appendChild(text);
-  myNodelist[i].appendChild(element);
-}
-
-document.querySelector('.addbtn').addEventListener('click', addList);
-document.querySelector('#myinput').addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    addList();
+  if (errors.length > 0) {
+    alert(errors.join('\n'));
+    return false;
   }
-});
-
-var close = document.getElementsByClassName('close');
-
-for (let i = 0; i < close.length; i++) {
-  close[i].onclick = function () {
-    this.parentElement.style.display = 'none';
-  };
+  return true;
 }
+
+document.querySelector('#signup').addEventListener('click', validatePassword);
