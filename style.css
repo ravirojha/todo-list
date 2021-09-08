@@ -1,13 +1,12 @@
-.container {
+nav {
   display: flex;
-  flex-direction: column;
-  width: 100vw;
-  align-items: center;
+  background-color: rgb(134, 151, 107);
+  justify-content: flex-start;
+  color: white;
 }
 
-.formSignup {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  align-items: center;
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #c5c1b6;
 }
